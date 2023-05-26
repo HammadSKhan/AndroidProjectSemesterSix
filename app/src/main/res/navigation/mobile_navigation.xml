@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/nav_list_user"
-        android:name="com.example.androidprojectprep25may.activity.ui.userlist.UserListFragment"
+        android:name="com.example.androidprojectprep25may.activity.ui.userlist.UserResourceFragment"
         android:label="@string/list_user"
-        tools:layout="@layout/fragment_user_list" />
+        tools:layout="@layout/fragment_user_list_resource" />
 
     <fragment
         android:id="@+id/nav_create_user"

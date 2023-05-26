@@ -11,9 +11,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.androidprojectprep25may.R;
-import com.example.androidprojectprep25may.activity.ui.userlist.placeholder.PlaceholderContent;
+import com.example.androidprojectprep25may.apiresources.CreateUserResource;
+import com.example.androidprojectprep25may.apiresources.UserListResource;
+import com.example.androidprojectprep25may.apiresources.UserResource;
+import com.example.androidprojectprep25may.helper.api.APIClient;
+import com.example.androidprojectprep25may.helper.api.APIInterface;
+
+import java.io.IOException;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A fragment representing a list of Items.
@@ -65,7 +77,28 @@ public class UserResourceFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyUserResourceRecyclerViewAdapter(PlaceholderContent.ITEMS));
+            APIInterface apiInterface = APIClient.getClient().create(APIInterface.class);
+            Call<UserListResource> call1 = apiInterface.doGetListResources();
+            try {
+                call1.enqueue(new Callback<UserListResource>() {
+                    @Override
+                    public void onResponse(Call<UserListResource> call, Response<UserListResource> response) {
+                        UserListResource listUser = response.body();
+                        recyclerView.setAdapter(new MyUserResourceRecyclerViewAdapter((listUser.getData())));
+                        System.out.println(listUser.getData().toString());
+//                        Toast.makeText(getActivity().getApplicationContext(),"User added Successfully!",Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onFailure(Call<UserListResource> call, Throwable t) {
+                        call.cancel();
+                    }
+                });
+
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+
         }
         return view;
     }

@@ -4,48 +4,50 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal">
 
+<!--    <TextView-->
+<!--        android:id="@+id/item_number"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="@dimen/text_margin"-->
+<!--        android:textAppearance="?attr/textAppearanceListItem" />-->
+
+
     <TextView
-        android:id="@+id/item_number"
+        android:id="@+id/id_output"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"
-        android:textAppearance="?attr/textAppearanceListItem" />
+        android:textAppearance="?attr/textAppearanceListItem"
+        />
 
     <TextView
-        android:id="@+id/content"
+        android:id="@+id/email_output"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"
-        android:textAppearance="?attr/textAppearanceListItem" />
-
-    <TextView
-        android:id="@+id/idOutput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceListItem"
         />
 
     <TextView
-        android:id="@+id/emailOutput"
-        android:layout_width="match_parent"
+        android:id="@+id/first_name_output"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:textAppearance="?attr/textAppearanceListItem"
         />
 
     <TextView
-        android:id="@+id/firstNameOutput"
-        android:layout_width="match_parent"
+        android:id="@+id/last_name_output"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:textAppearance="?attr/textAppearanceListItem"
         />
 
-    <TextView
-        android:id="@+id/lastNameOutput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-
-    <TextView
-        android:id="@+id/photoOutput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/photo_output"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         />
 
 </LinearLayout>

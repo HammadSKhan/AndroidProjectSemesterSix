@@ -64,4 +64,14 @@ public class UserResource {
         this.avatar = avatar;
     }
 
+    @Override
+    public String toString() {
+        return "UserResource{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", avatar='" + avatar + '\'' +
+                '}';
+    }
 }

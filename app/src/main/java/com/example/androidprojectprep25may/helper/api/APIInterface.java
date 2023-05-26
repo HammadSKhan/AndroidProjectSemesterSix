@@ -2,6 +2,7 @@ package com.example.androidprojectprep25may.helper.api;
 
 
 import com.example.androidprojectprep25may.apiresources.CreateUserResource;
+import com.example.androidprojectprep25may.apiresources.UserListResource;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -13,8 +14,8 @@ import retrofit2.http.Query;
 
 public interface APIInterface {
 
-//    @GET("/api/unknown")
-//    Call<UserListResource> doGetListResources();
+    @GET("/api/users?")
+    Call<UserListResource> doGetListResources();
 
     @POST("/api/users")
     Call<CreateUserResource> createUser(@Body CreateUserResource user);
