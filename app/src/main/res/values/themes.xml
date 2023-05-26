@@ -10,9 +10,13 @@
     <style name="Theme.AndroidProjectPrep25may.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+
     </style>
 
+
     <style name="Theme.AndroidProjectPrep25may.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+
 
     <style name="Theme.AndroidProjectPrep25may.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

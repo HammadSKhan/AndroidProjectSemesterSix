@@ -38,19 +38,12 @@ public class MyUserResourceRecyclerViewAdapter extends RecyclerView.Adapter<MyUs
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
         holder.mIdOutput.setText(mValues.get(position).getId().toString());
-//        holder.mEmailOutput.setText(mValues.get(position).getEmail());
+        holder.mEmailOutput.setText(mValues.get(position).getEmail());
         holder.mFirstNameOutput.setText(mValues.get(position).getFirstName());
         holder.mLastNameOutput.setText(mValues.get(position).getLastName());
         new DownloadImageFromInternet(holder.mPhotoOutput,holder.itemView.getContext())
                 .execute(mValues.get(position).getAvatar());
 
-//        holder.mPhotoOutput
-//                .setImageURI(Uri.parse(mValues.get(position).getAvatar()));
-//                .setImageDrawable(
-//                        Functions.LoadImageFromWebOperations(
-//                                mValues.get(position).getAvatar())
-//                );
-        System.out.println(mValues.get(position).getAvatar());
     }
 
     @Override
