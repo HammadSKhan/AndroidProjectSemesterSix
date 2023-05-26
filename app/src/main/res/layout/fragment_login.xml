@@ -53,6 +53,7 @@
         android:text="sing up" />
 
   <CheckBox
+      android:id="@+id/save_login"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="keep me signed in"

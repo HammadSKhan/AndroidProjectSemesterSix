@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+
+    tools:context=".activity.ui.createuser.CreateUserFragment">
+
+    <TextView
+        android:id="@+id/nameOutput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+
+    <EditText
+        android:id="@+id/nameInput"
+        android:inputType="text"
+        android:autofillHints="name"
+        android:hint="@string/enter_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+
+        android:id="@+id/jobInput"
+        android:hint="@string/enter_job"
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/createUserBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create" />
+
+
+</LinearLayout>

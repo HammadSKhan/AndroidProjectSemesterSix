@@ -1,5 +1,6 @@
 package com.example.androidprojectprep25may.fragment.auth;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,13 +11,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.androidprojectprep25may.R;
+import com.example.androidprojectprep25may.activity.AuthActivity;
+import com.example.androidprojectprep25may.activity.HomeActivity;
 import com.example.androidprojectprep25may.dao.UserDao;
 import com.example.androidprojectprep25may.db.AppDatabase;
 import com.example.androidprojectprep25may.entity.User;
 import com.example.androidprojectprep25may.helper.Constants;
+import com.example.androidprojectprep25may.helper.SaveSharedPreference;
 
 import java.util.zip.Inflater;
 
@@ -91,9 +97,17 @@ public class LoginFragment extends Fragment {
 
                 User loginData = userDao.login(email, password);
 
+                System.out.println(loginData);
                 if (loginData != null) {
-                    System.out.println("Successfully Logged in!!");
+                    CheckBox checkBox = view.findViewById(R.id.save_login);
+                    if (checkBox.isChecked()){
+                        SaveSharedPreference.setUserName(getContext(),email);
+                    }
+                    Intent intent = new Intent(getContext(), HomeActivity.class);
+                    startActivity(intent);
                 } else {
+                    Toast.makeText(getActivity().getApplicationContext(),"User does not exist",Toast.LENGTH_SHORT).show();
+
                     System.out.println("User does not exist!");
                 }
             }
@@ -121,6 +135,7 @@ public class LoginFragment extends Fragment {
 
             }
         });
+
 
         return view;
     }
