@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.androidprojectprep25may'
+    namespace 'com.example.androidproject'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.androidprojectprep25may"
+        applicationId "com.example.androidproject"
         minSdk 24
         targetSdk 33
         versionCode 1
