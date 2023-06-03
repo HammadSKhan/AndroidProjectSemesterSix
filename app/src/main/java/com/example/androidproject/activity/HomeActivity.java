@@ -59,6 +59,8 @@ public class HomeActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home, menu);
+
+        //Clicking on Logout
         menu.getItem(1).setOnMenuItemClickListener(menuItem -> {
 
             //Removing user from shared preference

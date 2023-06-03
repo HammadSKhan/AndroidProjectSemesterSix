@@ -78,6 +78,12 @@ public class LoginFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_login, container, false);
 
+        //Filling edittext fields after user navigates from signup
+        if (getArguments() != null) {
+            ((EditText) view.findViewById(R.id.emailLogin)).setText(email);
+            ((EditText) view.findViewById(R.id.passwordLogin)).setText(password);
+
+        }
 
         Button button = view.findViewById(R.id.loginBtn);
         button.setOnClickListener(new View.OnClickListener() {
@@ -102,6 +108,8 @@ public class LoginFragment extends Fragment {
                     }
                     Intent intent = new Intent(getContext(), HomeActivity.class);
                     startActivity(intent);
+                } else if (email.equals("") || password.equals("")) {
+                    Toast.makeText(getActivity().getApplicationContext(), "Please input correct values.", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getActivity().getApplicationContext(),"User does not exist",Toast.LENGTH_SHORT).show();
 
@@ -110,16 +118,16 @@ public class LoginFragment extends Fragment {
             }
         });
 
-        Button button2 = view.findViewById(R.id.forgotPasswordBtn);
-        button2.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                AppDatabase db = Room.databaseBuilder(getActivity().getApplicationContext(),
-                        AppDatabase.class, Constants.dataBase).allowMainThreadQueries().build();
-
-                UserDao userDao = db.userDao();
-                System.out.println(userDao.getAll());
-            }
-        });
+//        Button button2 = view.findViewById(R.id.forgotPasswordBtn);
+//        button2.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                AppDatabase db = Room.databaseBuilder(getActivity().getApplicationContext(),
+//                        AppDatabase.class, Constants.dataBase).allowMainThreadQueries().build();
+//
+//                UserDao userDao = db.userDao();
+//                System.out.println(userDao.getAll());
+//            }
+//        });
 
         Button button3 = view.findViewById(R.id.signupBtn);
         button3.setOnClickListener(new View.OnClickListener() {

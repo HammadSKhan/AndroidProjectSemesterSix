@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.androidproject.R;
 import com.example.androidproject.apiresources.UserListResource;
@@ -90,6 +91,7 @@ public class UserResourceFragment extends Fragment {
                 });
 
             } catch (Exception e) {
+                Toast.makeText(getActivity().getApplicationContext(), "Api call unsuccessful", Toast.LENGTH_SHORT).show();
                 throw new RuntimeException(e);
             }
 

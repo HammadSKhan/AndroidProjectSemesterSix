@@ -24,8 +24,6 @@ public class CreateUserFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-//        SlideshowViewModel slideshowViewModel =
-//                new ViewModelProvider(this).get(SlideshowViewModel.class);
 
         binding = FragmentCreateUserBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

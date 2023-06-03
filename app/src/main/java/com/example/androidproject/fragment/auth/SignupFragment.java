@@ -11,8 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.androidproject.R;
+import com.example.androidproject.activity.HomeActivity;
+import com.example.androidproject.activity.ui.home.HomeFragment;
 import com.example.androidproject.dao.UserDao;
 import com.example.androidproject.db.AppDatabase;
 import com.example.androidproject.entity.User;
@@ -94,8 +97,19 @@ public class SignupFragment extends Fragment {
 
                 if (checkUserEmail != null) {
                     System.out.println("User already exists");
+                    Toast.makeText(getActivity().getApplicationContext(), "User already exists.", Toast.LENGTH_SHORT).show();
+                } else if (firstName.equals("") || lastName.equals("") || email.equals("") || password.equals("")) {
+                    Toast.makeText(getActivity().getApplicationContext(), "Please input correct values.", Toast.LENGTH_SHORT).show();
                 } else {
                     userDao.signUp(new User(firstName, lastName, email, password, "https://placehold.co/100"));
+                    Toast.makeText(getActivity().getApplicationContext(), "User Created!!", Toast.LENGTH_SHORT).show();
+                    getParentFragmentManager().beginTransaction()
+                            .setReorderingAllowed(true)
+                            .replace(R.id.fragmentAuthContainer, LoginFragment.newInstance(email, password), null)
+//                            .replace(R.id.fragmentAuthContainer, LoginFragment.class, null)
+                            .commit();
+
+
                 }
             }
         });
@@ -107,11 +121,6 @@ public class SignupFragment extends Fragment {
                         .setReorderingAllowed(true)
                         .replace(R.id.fragmentAuthContainer, LoginFragment.class, null)
                         .commit();
-//                AppDatabase db = Room.databaseBuilder(getActivity().getApplicationContext(),
-//                        AppDatabase.class, "Main-database").allowMainThreadQueries().build();
-//
-//                UserDao userDao = db.userDao();
-//                System.out.println(userDao.getAll());
             }
         });
 
